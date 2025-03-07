@@ -1,0 +1,226 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 80px; /* Ajustado para compensar o cabeçalho */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+}
+
+/* Imagem de fundo com efeito de parallax */
+body {
+    background-image: url('sua-imagem-de-fundo.jpg'); /* Substitua com o caminho da sua imagem */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Faz com que a imagem de fundo se mova conforme o scroll */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    background: #333;
+    color: white;
+    padding: 30px; /* Maior espaço para destacar o cabeçalho */
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2.5rem; /* Título maior */
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px; /* Botões mais largos */
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+/* Layout principal */
+.content {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 3 partes para a coluna principal e 1 parte para as laterais */
+    gap: 20px;
+    padding: 20px;
+    flex: 1; /* Garante que o conteúdo ocupe o restante do espaço */
+}
+
+
+/* Coluna Principal */
+.coluna-principal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#sobre {
+    width: 50%; /* Define que a largura da seção será 50% da tela */
+    padding: 20px; /* Adiciona espaçamento interno */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+}
+
+#projetos {
+    width: 50%; /* Define que a largura da seção será 50% da tela */
+    padding: 20px; /* Adiciona espaçamento interno */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+}
+
+/* Colunas laterais */
+.colunas-laterais {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lateral {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove qualquer padding ou margin das seções e ajusta o layout */
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo branco com leve transparência */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidade */
+    width: auto; /* A largura será definida pelo conteúdo */
+    max-width: 90%; /* Para não ocupar a largura total da tela */
+    margin: 20px auto; /* Centraliza e adiciona margens */
+}
+/* Ajuste de responsividade para telas menores */
+@media (max-width: 768px) {
+    section {
+        max-width: 95%; /* Em telas menores, a seção pode ocupar um pouco mais da largura */
+    }
+}
+
+h2 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #333;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 25px; /* Espaço maior no rodapé */
+    margin-top: 20px;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação para o fundo escuro */
+@keyframes aparecerFundo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animação para a janela centralizada */
+@keyframes aparecerJanela {
+    0% {
+        transform: translate(-50%, -60%) scale(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Estilo para a tela escura */
+.fundo-escuro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+    display: none; /* Inicialmente não visível */
+    z-index: 999;
+    opacity: 0;
+}
+
+/* Estilo para a janela centralizada */
+.centralizado {
+    display: none; /* Inicialmente não visível */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) scale(0); /* Começa menor e deslocada */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: aparecerJanela 0.5s ease-out forwards;
+}
+
+/* Aparece o fundo escuro com animação */
+.fundo-escuro.show {
+    display: block;
+    animation: aparecerFundo 0.5s ease-out forwards;
+}

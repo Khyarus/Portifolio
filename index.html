@@ -18,44 +18,59 @@
             </ul>
         </nav>
     </header>
-    
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Sou um desenvolvedor apaixonado por tecnologia...</p>
-    </section>
-    
-    <section id="projetos">
-        <h2>Meus Projetos</h2>
-        <div class="projeto">
-            <h3>Projeto 1</h3>
-            <p>Descrição do projeto...</p>
+
+    <main class="content">
+        <div class="coluna-principal">
+            <section id="sobre">
+                <h2>Sobre Mim</h2>
+                <p>Sou engenheiro de computação em formação, com 20 anos, e trabalho atualmente como Nível 1, com experiência ocasional como Nível 3, em sistemas ADM que utilizam PHP, JavaScript e HTML. Este portfólio é uma tentativa de aprofundar meus conhecimentos e expandir minhas habilidades nas áreas de web development, explorando novas tecnologias e melhores práticas. Sou um desenvolvedor apaixonado por tecnologia e sempre busco aprender mais para evoluir na minha carreira.
+                    </p>
+            </section>
+            
+            <section id="projetos">
+                <h2>Meus Projetos</h2>
+                <div class="projeto">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição do projeto...</p>
+                    
+                </div>
+            </section>
         </div>
-    </section>
-    
-    <section id="contato">
-        <h2>Contato</h2>
-        <form>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-    
-    <section id="login">
-        <h2>Login</h2>
-        <form>
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" required>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" required>
-            <button type="submit">Entrar</button>
-        </form>
-    </section>
-    
+
+        <div class="colunas-laterais">
+            <aside class="lateral" id="contato">
+                <h2>Contato</h2>
+                <form>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </aside>
+
+            <aside class="lateral" id="login">
+                <h2>Login</h2>
+                <form>
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required>
+                    <button type="submit">Entrar</button>
+                </form>
+            </aside>
+        </div>
+    </main>
+
     <footer>
-        <p>&copy; 2025 Meu Nome. Todos os direitos reservados.</p>
+        <p>&copy; 2025 João Gabriel Cansi Silveira. Todos os direitos reservados.</p>
     </footer>
+
+    <div id="fundo-escuro" class="fundo-escuro"></div>
+    <div id="janela" class="centralizado">
+        <div id="conteudo-janelas"></div>
+    </div>
+
+    <script src="menu.js"></script>
 </body>
 </html>
