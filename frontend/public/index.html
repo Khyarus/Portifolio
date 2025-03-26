@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site com Vue</title>
+    <!-- Carrega Vue.js 3 via CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- Coluna de opções à esquerda -->
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <ul class="menu">
+                    <li v-for="item in menuItems" :key="item.id">
+                        <a href="#" @click.prevent="setActive(item.id)">{{ item.title }}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Área de conteúdo à direita -->
+            <div class="main-content">
+                <div v-for="item in menuItems" :key="'content-'+item.id" 
+                     class="content-section" 
+                     v-show="activeSection === item.id">
+                    <h1>{{ item.contentTitle }}</h1>
+                    <p>{{ item.content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nosso arquivo JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
