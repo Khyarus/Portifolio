@@ -1,0 +1,210 @@
+/* Variáveis de cor atualizadas */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --active-color: #2980b9;
+    --text-color: #333;
+    --light-text: #ecf0f1;
+    --hover-color: #34495e;
+    --bg-color: #f8f9fa;
+    --content-bg: #ffffff;
+    --card-bg: #f0f2f5; /* Novo cinza claro para cards */
+    --border-radius: 12px; /* Bordas mais arredondadas */
+    --transition-speed: 0.3s;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Reset e base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  }
+  
+  /* Container principal */
+  .home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+  
+  /* Módulo Hero - agora como card */
+  .hero-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  
+  /* Módulo Features */
+  .features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+  }
+  
+  .feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .feature-card p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Módulo About */
+  .about-section {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    list-style: none;
+  }
+  
+  .portfolio-features li {
+    background: var(--content-bg);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .portfolio-features li:hover {
+    transform: translateX(5px);
+  }
+  
+  .portfolio-features li strong {
+    color: var(--secondary-color);
+  }
+  
+  /* Botões */
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--active-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-secondary {
+    background-color: var(--content-bg);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .home-container {
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+    
+    .hero-section {
+      padding: 2rem 1rem;
+      min-height: auto;
+    }
+    
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+    
+    .feature-card {
+      padding: 1.5rem;
+    }
+    
+    .about-section {
+      padding: 1.5rem;
+    }
+    
+    .portfolio-features {
+      grid-template-columns: 1fr;
+    }
+  }

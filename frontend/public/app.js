@@ -1,28 +1,39 @@
-const { createApp, ref, computed } = Vue;
+const { createApp, ref } = Vue;
 
-createApp({
-    setup() {
-        const currentPage = ref(window.location.pathname.substring(1) || 'home');
-        
-        const menuItems = ref({
-            'home': 'Home',
-            'sobre': 'Sobre',
-            'services': 'Serviços',
-            'contato': 'Contato'
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    createApp({
+        setup() {
+            // Obtém a página atual da URL
+            const getCurrentPage = () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('page') || 'home';
+            };
 
-        const navigateTo = (page) => {
-            currentPage.value = page;
-            window.history.pushState({}, '', `/${page}`);
-            // Dispara evento para que o PHP saiba que a página mudou
-            window.dispatchEvent(new PopStateEvent('popstate'));
-        };
+            const currentPage = ref(getCurrentPage());
+            
+            const menuItems = ref({
+                'home': 'Home',
+                'sobre': 'Sobre', 
+                'services': 'Serviços',
+                'contato': 'Contato'
+            });
 
-        // Atualiza quando navega pelo browser (frente/voltar)
-        window.addEventListener('popstate', () => {
-            currentPage.value = window.location.pathname.substring(1) || 'home';
-        });
+            const navigateTo = (page) => {
+                currentPage.value = page;
+                window.history.pushState({}, '', `?page=${page}`);
+                window.dispatchEvent(new PopStateEvent('popstate'));
+            };
 
-        return { currentPage, menuItems, navigateTo };
-    }
-}).mount('#app');
+            // Atualiza quando navega pelo browser (frente/voltar)
+            window.addEventListener('popstate', () => {
+                currentPage.value = getCurrentPage();
+            });
+
+            return { 
+                currentPage,
+                menuItems,
+                navigateTo
+            };
+        }
+    }).mount('#app');
+});

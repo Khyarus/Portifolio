@@ -1,0 +1,109 @@
+/* Estilos específicos para a página de contato */
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-form, .contact-info {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 150px;
+}
+
+.contact-method {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact-method:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Adicione estas regras ao seu arquivo contact.css */
+
+.contact-method {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Espaço entre elementos */
+}
+
+.contact-method h3 {
+    margin: 0.5rem 0; /* Ajuste do título */
+}
+
+.contact-method p {
+    margin: 0.3rem 0 1.2rem 0; /* Espaço extra abaixo do texto */
+}
+
+.contact-method .btn {
+    margin-top: auto; /* Empurra o botão para baixo */
+    width: fit-content; /* Largura conforme conteúdo */
+    min-width: 160px; /* Largura mínima consistente */
+    text-align: center;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .contact-method .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form, .contact-info {
+        padding: 1.5rem;
+    }
+}
