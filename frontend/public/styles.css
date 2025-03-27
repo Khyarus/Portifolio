@@ -1,0 +1,200 @@
+/* styles.css */
+/* Reset e configurações gerais */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --light-text: #ecf0f1;
+    --hover-color: #34495e;
+    --active-color: #2980b9;
+    --bg-color: #f8f9fa;
+    --content-bg: #ffffff;
+    --border-radius: 6px;
+    --transition-speed: 0.3s;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  #app {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* Estilos do Header (Menu Lateral) */
+  .main-header {
+    width: 280px;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  
+  .main-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .main-menu {
+    list-style: none;
+    flex-grow: 1;
+  }
+  
+  .main-menu li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .main-menu a {
+    color: var(--light-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    font-size: 1rem;
+  }
+  
+  .main-menu a:hover {
+    background-color: var(--hover-color);
+    transform: translateX(5px);
+  }
+  
+  .main-menu a.active {
+    background-color: var(--active-color);
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos do Conteúdo Principal */
+  .main-content {
+    flex-grow: 1;
+    padding: 3rem;
+    background-color: var(--content-bg);
+    min-height: 100vh;
+  }
+  
+  /* Estilos do Footer */
+  .main-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .main-footer p {
+    margin-bottom: 0;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .main-header {
+      width: 240px;
+      padding: 1.5rem 1rem;
+    }
+    
+    .main-content {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+    
+    .main-header {
+      width: 100%;
+      height: auto;
+      position: relative;
+      padding: 1rem;
+    }
+    
+    .main-header h1 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .main-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .main-menu li {
+      margin-bottom: 0;
+      flex: 1 0 calc(50% - 0.5rem);
+    }
+    
+    .main-menu a {
+      justify-content: center;
+      padding: 0.6rem;
+    }
+    
+    .main-menu a:hover {
+      transform: translateY(-3px);
+    }
+    
+    .main-content {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Animações e efeitos extras */
+  .main-menu a {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-speed) ease;
+  }
+  
+  .main-menu a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Efeito de loading para troca de páginas */
+  .content-transition {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

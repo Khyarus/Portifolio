@@ -8,12 +8,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Nosso arquivo JS -->
     <script src="./js/app.js" defer></script>
-    <style>
-        .main-menu a.active {
-            font-weight: bold;
-            color: #0066cc;
-        }
-    </style>
+    <link rel="stylesheet" href="../public/styles.css">
 </head>
 <body>
     <div id="app">
