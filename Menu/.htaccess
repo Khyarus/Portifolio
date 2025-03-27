@@ -1,7 +1,24 @@
-RewriteEngine On
-RewriteBase /
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redireciona para HTTPS em produção
+    RewriteCond %{HTTPS} off
+    RewriteCond %{ENV:APP_ENV} production
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Remove trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+    
+    # Front Controller - ajustado para sua estrutura
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
+</IfModule>
 
-# Redireciona todas as requisições para o index.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
+# Segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

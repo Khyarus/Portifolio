@@ -1,9 +1,13 @@
 <?php
-// Configurações básicas
+// Configurações básicas - caminho relativo ajustado
 require __DIR__ . '/../config/PathManager.php';
+require __DIR__ . '/../config/AppConfig.php';
+// Define o ambiente
+define('APP_ENV', getenv('APP_ENV') ?: 'local');
+putenv("APP_ENV=" . APP_ENV);
 
 // Páginas válidas
-$validPages = ['home', 'sobre', 'services', 'contato', 'projetos'];
+$validPages = ['home', 'sobre', 'services', 'contato', 'projetos', 'testes'];
 $page = $_GET['page'] ?? 'home';
 
 // Verifica se a página é válida
@@ -20,9 +24,13 @@ try {
     PathManager::requirePage($page);
     echo '</section>';
 } catch (Exception $e) {
-    echo '<div class="error">Erro ao carregar o conteúdo: ' . $e->getMessage() . '</div>';
+    error_log($e->getMessage());
+    if (AppConfig::isProduction()) {
+        echo '<div class="error">Ocorreu um erro ao carregar o conteúdo.</div>';
+    } else {
+        echo '<div class="error">Erro ao carregar o conteúdo: ' . htmlspecialchars($e->getMessage()) . '</div>';
+    }
 }
 
 // Carrega o rodapé
 PathManager::requireTemplate('footer');
-?>
