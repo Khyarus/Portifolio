@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'home': 'Home',
                 'sobre': 'Sobre', 
                 'services': 'Serviços',
-                'contato': 'Contato'
+                'contato': 'Contato',
+                
             });
 
             const navigateTo = (page) => {

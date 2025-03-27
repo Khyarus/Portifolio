@@ -3,7 +3,7 @@
 require __DIR__ . '/../config/PathManager.php';
 
 // Páginas válidas
-$validPages = ['home', 'sobre', 'services', 'contato', ];
+$validPages = ['home', 'sobre', 'services', 'contato', 'projetos'];
 $page = $_GET['page'] ?? 'home';
 
 // Verifica se a página é válida

@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'home', title: 'Home' },
                 { id: 'sobre', title: 'Sobre' },
                 { id: 'services', title: 'Serviços' },
-                { id: 'contato', title: 'Contato' }
+                { id: 'contato', title: 'Contato' },
+                { id: 'projetos', title: 'Projetos' } 
             ]);
 
             // Manipula a navegação
