@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const { createApp, ref, onMounted } = Vue;
+    const { createApp, ref } = Vue;
 
     const app = createApp({
         setup() {
@@ -20,16 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'testes', title: 'Testes' }
             ]);
 
-            // Manipula a navegação
-            const handleNavigation = (sectionId) => {
+            // Método para carregar conteúdo via AJAX
+            const loadContent = async (page) => {
+                try {
+                    const response = await fetch(`/api/getContent.php?page=${page}`);
+                    return await response.text();
+                } catch (error) {
+                    console.error('Erro ao carregar conteúdo:', error);
+                    return '<p>Erro ao carregar conteúdo</p>';
+                }
+            };
+
+            // Manipula a navegação (versão SPA)
+            const handleNavigation = async (sectionId, event) => {
+                event.preventDefault();
                 activeSection.value = sectionId;
+                const content = await loadContent(sectionId);
+                document.querySelector('.content').innerHTML = content;
                 window.history.pushState({}, '', `?page=${sectionId}`);
             };
 
-            // Observa mudanças na URL
-            onMounted(() => {
-                window.addEventListener('popstate', () => {
-                    activeSection.value = getCurrentPage();
+            // Carrega o conteúdo inicial
+            onMounted(async () => {
+                const initialContent = await loadContent(getCurrentPage());
+                document.querySelector('.content').innerHTML = initialContent;
+                
+                window.addEventListener('popstate', async () => {
+                    const page = getCurrentPage();
+                    activeSection.value = page;
+                    const content = await loadContent(page);
+                    document.querySelector('.content').innerHTML = content;
                 });
             });
 
